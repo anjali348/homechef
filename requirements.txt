@@ -1,0 +1,9 @@
+# Phase 1 — ML core only. No web framework yet.
+sentence-transformers   # local embeddings, free
+chromadb                # local vector store
+datasets<4.0            # to pull RecipeNLG from Hugging Face (mbien/recipe_nlg uses a loading script, unsupported in datasets>=4.0)
+python-dotenv           # load API key from .env
+rapidfuzz               # fast fuzzy string matching for ingredient normalization
+
+# Pick ONE LLM SDK for the RAG step (qa.py):
+anthropic               # or: openai
