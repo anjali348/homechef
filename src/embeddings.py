@@ -1,18 +1,3 @@
-"""
-embeddings.py — embed recipes and enable semantic + metadata-filtered search.
-
-This layer is mostly standard and safe to lean on AI for — BUT understand
-these two ideas because they're the interview talking points:
-  - You embed a TEXT REPRESENTATION of each recipe (title + ingredients +
-    cuisine). What you put in the text changes what "similar" means.
-  - Metadata (cuisine, total_time, dietary_tags) is stored alongside vectors
-    so you can FILTER before semantic search — e.g. "dairy-free under 30 min"
-    narrows the set, then similarity ranks within it. This combo is what makes
-    both the pantry feature and the Q&A feature good.
-
-Build order: AFTER storage.py works and you've seeded some recipes.
-"""
-
 import chromadb
 from pathlib import Path
 from sentence_transformers import SentenceTransformer
