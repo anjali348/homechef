@@ -1,24 +1,3 @@
-"""
-pantry.py — "cook with what I have." YOUR CENTERPIECE.
-
-⚠️  THIS IS YOUR SECOND DIFFERENTIATOR AND THE STAR FEATURE.
-    Build it in two passes so you have a baseline -> improved STORY to tell.
-    Understand the ranking logic cold; do not outsource the thinking here.
-
-PASS 1 (baseline): rank recipes by number of missing ingredients (fewest = best),
-using fuzzy name matching so "chicken" matches "chicken breast".
-
-PASS 2 (improved): not all missing ingredients are equal.
-    - Weight by how CORE a missing item is (missing the protein hurts more
-      than a missing spice/garnish).
-    - Consider SUBSTITUTABILITY (missing butter is more forgivable than
-      missing the main vegetable).
-    - Optionally fold in a "pantry staples" set (salt, water, oil) that you
-      assume everyone has, so they never count as missing.
-
-Document your weighting choices in the README — that reasoning IS the skill.
-"""
-
 from . import storage
 from .normalize import names_match
 
