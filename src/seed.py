@@ -1,25 +1,3 @@
-"""
-seed.py — load a manageable RecipeNLG subset into storage, then index it.
-
-RecipeNLG is ~2M recipes. DO NOT load all of it. Take a few thousand for the
-MVP — plenty for a good demo, and keeps embedding time/memory sane.
-
-Source: the raw Kaggle CSV (data/raw/RecipeNLG_dataset.csv), not the
-Hugging Face Hub loader — the Hub copy requires trust_remote_code and,
-even then, gates behind a manual download from recipenlg.cs.put.poznan.pl.
-Easier to just read the CSV we already have on disk directly.
-
-RecipeNLG_dataset.csv columns: an unnamed row-index column, title,
-ingredients (list of raw strings), directions (list of steps), link,
-source, NER (list of core ingredient names). The list-valued columns are
-stored as Python-literal strings (e.g. '["a", "b"]'), not JSON — hence
-ast.literal_eval below rather than json.loads.
-Note: it does NOT ship cuisine / total_time / dietary_tags — those are yours
-to leave null for now, or derive later as an enhancement.
-
-Run once to populate the DB, then embeddings.index_all_recipes() to vectorize.
-"""
-
 import ast
 import csv
 from pathlib import Path
