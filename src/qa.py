@@ -1,24 +1,3 @@
-"""
-qa.py — RAG: answer questions grounded in the user's stored recipes, with citations.
-
-The RAG pattern (understand this — it's the core AI skill you're demonstrating):
-  1. RETRIEVE: embed the question, find the most relevant recipes (reuse
-     embeddings.semantic_search).
-  2. AUGMENT: stuff those recipes into the prompt as context.
-  3. GENERATE: the LLM answers using ONLY that context, and cites which
-     recipes it used.
-
-The quality levers (your interview talking points):
-  - How many recipes to retrieve (k): too few misses answers, too many
-    dilutes / overflows context.
-  - Prompt design: instruct the model to ground in context and say "I don't
-    have a recipe for that" rather than hallucinating.
-  - Citations: return which recipe ids/titles supported the answer.
-
-Uses Anthropic here; swap for openai if you prefer. Put your key in .env as
-ANTHROPIC_API_KEY. Build this LAST in Phase 1.
-"""
-
 import os
 from dotenv import load_dotenv
 from anthropic import Anthropic
